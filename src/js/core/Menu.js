@@ -1,9 +1,10 @@
 
 
 export default class Menu{
-    constructor (domNode, props){
+    constructor (domNode, category ,props){
         this.$domNode = domNode;
-        this.$props = props
+        this.$props = props;
+        this.category = category;
         this.setup();
         this.render();
     }
