@@ -5,7 +5,7 @@ export default class MenuSlider extends Menu{
     async setup(){
         //this.category = this.$props.category
         this.$state = this.$props.espresso
-        console.log(this.$state);
+        
         
     }
 

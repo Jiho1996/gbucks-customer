@@ -4,7 +4,7 @@ import App from "./App.js"
 
 //new App(document.querySelector("#slides_espresso"), "espresso");
 window.addEventListener('DOMContentLoaded', async () => {
-    new App(document.querySelector("#slides_espresso"), await getAllMenuObject());   
+    new App(document.querySelector("#app"), await getAllMenuObject());   
   });
 
 const getAllMenuObject = async () => {

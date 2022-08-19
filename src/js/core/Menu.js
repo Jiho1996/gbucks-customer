@@ -19,10 +19,12 @@ export default class Menu{
     template () {
         
     }
+    
 
     render () {
-        console.log(this.template())
+        console.log(this.$domNode)
         this.$domNode.innerHTML = this.template();
+        this.mount();
     }
 
     mount () {
