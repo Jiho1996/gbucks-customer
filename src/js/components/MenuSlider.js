@@ -3,11 +3,15 @@ import Menu from "../core/Menu.js"
 export default class MenuSlider extends Menu{
     
     async setup(){
-        this.$state = this.$props[this.category]
+        this.$state = this.$props
     }
 
     template () {
-        return this.$state.menu.map(ele => `<div>${ele.name}</div>`).join("");
+        return this.$state.menu.map(ele => 
+        `
+        <div class = "slide_content" >${ele.name}</div> 
+        `
+        ).join("");
     }
     
     // const renderMenuList = async (menuCategory) =>{
