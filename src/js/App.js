@@ -23,33 +23,47 @@ export default class App extends Menu{
 
     mount (){
         const $espressoMenuSlider = $('[data-component="esspresso-menu-container"]');
-        //console.log(this.$state)
-
-
-        
         new MenuSliderTemplate($espressoMenuSlider, "espresso" ,this.$state);
+        this.setSlide("espresso")
 
         const $frappuccinoMenuSlider = $('[data-component="frappuccino-menu-container"]');
-
-        new MenuSliderTemplate($frappuccinoMenuSlider, "frappuccino" ,this.$state);
+        new MenuSliderTemplate($frappuccinoMenuSlider, "frappuccino" ,this.$state)
+        this.setSlide("frappuccino");
 
         const $blendedMenuSlider = $('[data-component="blended-menu-container"]');
         new MenuSliderTemplate($blendedMenuSlider, "blended" ,this.$state);
-
-        console.log(document.documentElement.innerHTML)
+        this.setSlide("blended")
 
         const $teavanaMenuSlider = $('[data-component="teavana-menu-container"]');
         new MenuSliderTemplate($teavanaMenuSlider, "teavana" ,this.$state);
-        
+        this.setSlide("teavana")
         
         const $desertMenuSlider = $('[data-component="desert-menu-container"]');
         new MenuSliderTemplate($desertMenuSlider, "desert" ,this.$state);
-        
+        this.setSlide("desert")
 
         const $topNavBar = $('[data-component="menu-info-bar"]');
         new TopNavBar($topNavBar);
 
+
+    }
+
+    // 임시방편..
+    setSlide (category) {
         
+            const slideList = $(`.${category}-slide_list`); 
+            const slideLen = document.querySelectorAll(`.${category}-slide-content`).length;
+            const slideWidth = 400;
+            const slideContents = document.getElementsByClassName(`${category}-slide-content`)
+            
+            for (let idx = 0; idx < slideContents.length;idx++){
+                slideContents[idx].style.width = "100px";
+                slideContents[idx].style.height = "400px";
+                slideContents[idx].style.display = "table";
+                slideContents[idx].style.float = "left";
+            }
+    
+            slideList.style.width = slideWidth * (slideLen) + "px";
         
     }
     
