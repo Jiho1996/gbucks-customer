@@ -2,6 +2,7 @@ import Menu from "./core/Menu.js"
 import {$} from "./api/dom.js"
 import TopNavBar from "./components/TopNavBar.js";
 import MenuSliderTemplate from "./components/MenuSliderTemplate.js"
+import {MenuName} from "./constants/constants.js";
 
 export default class App extends Menu{
     
@@ -23,24 +24,24 @@ export default class App extends Menu{
 
     mount (){
         const $espressoMenuSlider = $('[data-component="esspresso-menu-container"]');
-        new MenuSliderTemplate($espressoMenuSlider, "espresso" ,this.$state);
-        this.setSlide("espresso")
+        new MenuSliderTemplate($espressoMenuSlider, MenuName.espresso ,this.$state);
+        this.setSlide(MenuName.espresso)
 
         const $frappuccinoMenuSlider = $('[data-component="frappuccino-menu-container"]');
-        new MenuSliderTemplate($frappuccinoMenuSlider, "frappuccino" ,this.$state)
-        this.setSlide("frappuccino");
+        new MenuSliderTemplate($frappuccinoMenuSlider, MenuName.frappuccino ,this.$state)
+        this.setSlide(MenuName.frappuccino);
 
         const $blendedMenuSlider = $('[data-component="blended-menu-container"]');
-        new MenuSliderTemplate($blendedMenuSlider, "blended" ,this.$state);
-        this.setSlide("blended")
+        new MenuSliderTemplate($blendedMenuSlider, MenuName.blended ,this.$state);
+        this.setSlide(MenuName.blended)
 
         const $teavanaMenuSlider = $('[data-component="teavana-menu-container"]');
-        new MenuSliderTemplate($teavanaMenuSlider, "teavana" ,this.$state);
-        this.setSlide("teavana")
+        new MenuSliderTemplate($teavanaMenuSlider,MenuName.teavana ,this.$state);
+        this.setSlide(MenuName.teavana)
         
         const $desertMenuSlider = $('[data-component="desert-menu-container"]');
-        new MenuSliderTemplate($desertMenuSlider, "desert" ,this.$state);
-        this.setSlide("desert")
+        new MenuSliderTemplate($desertMenuSlider, MenuName.desert ,this.$state);
+        this.setSlide(MenuName.desert)
 
         const $topNavBar = $('[data-component="menu-info-bar"]');
         new TopNavBar($topNavBar);
