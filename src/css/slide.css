@@ -1,65 +1,21 @@
+.slide_wrap {
+  position: relative;
+  width: 400px; 
+  margin: auto; 
+  padding-bottom: 30px; 
+}
 
-li{list-style:none;}
-
-.slide_wrapper{
+.slide_box {
+    width: 100%;
+    margin: auto;
+    overflow-x: hidden; 
+  }
   
-	position: relative;
-	width: 100%;
-	margin: 0 auto;
-	height: 50%;
-  overflow: hidden;
-    
-	
-}
-.slides{  
-   
-	position: absolute;
-    left: 0;
-    top: 0;
-    transition: left 0.5s ease-out;
-	
-}
-.slides.animated{
-	transition: 0.5s ease-out;
-}
-@media (min-width:1000px){
-.slides li:not(:last-child){
-	
-	height: 20%;
-	margin-left: 10px;
-	float:left;
-}
-}
+.slide_content {
+  
+  display: table; 
+  float: left; 
+  width: 400px; 
+  height: 100px; 
 
-
-.dotFirst {
-  margin: 0 6px;
-    cursor: pointer;
-    height: 15px;
-    width: 15px;
-    /* margin: 0 2px; */
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
-  }
-  .dotSecond {
-    cursor: pointer;
-    height: 15px;
-    width: 15px;
-    margin: 0 6px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
-  }
-  .dotThird {
-    cursor: pointer;
-    height: 15px;
-    width: 15px;
-    margin: 0 6px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
-  }
+}
