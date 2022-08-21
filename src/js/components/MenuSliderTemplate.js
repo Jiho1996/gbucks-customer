@@ -1,5 +1,5 @@
 import Menu from "../core/Menu.js"
-import MenuSlider from "./MenuSlider.js"
+import MenuSliderElement from "./MenuSliderElement.js"
 import {$} from "../api/dom.js"
 
 export default class MenuSliderTemplate extends Menu{
@@ -10,19 +10,22 @@ export default class MenuSliderTemplate extends Menu{
 
     template (){
         return `
-        <div class="slide_wrap">
-            <div class="slide_box">
-                <div class="${this.category}-slide_list">
-                
-            </div>
-        </div>
-    </div>`
+
+            <ul class="${this.category}-slides_list"></ul>
+
+            <div class="${this.category}-slide_btn_box">
+              <button type="button" class="${this.category}-slide_btn_prev">Prev</button>
+                    <button type="button" class="${this.category}-slide_btn_next">Next</button>
+                        </div>   
+
+       
+                    `
         
     }
 
     mount(){
         
-        new MenuSlider($(`.${this.category}-slide_list`), this.category ,this.$state);
+        new MenuSliderElement($(`.${this.category}-slides_list`), this.category ,this.$state);
     }
 
 

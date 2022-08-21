@@ -1,6 +1,7 @@
 import Menu from "../core/Menu.js"
+import {$} from "../api/dom.js"
 
-export default class MenuSlider extends Menu{
+export default class MenuSliderElement extends Menu{
     
     async setup(){
         this.$state = this.$props
@@ -9,10 +10,12 @@ export default class MenuSlider extends Menu{
     template () {
         return this.$state.menu.map(ele => 
         `
-        <div class = "slide_content" >${ele.name}</div> 
+        <div class = "${this.category}-slide-content" >${ele.name}</div> 
         `
         ).join("");
     }
+
+
     
     // const renderMenuList = async (menuCategory) =>{
     //    this.menu[menuCategory] = await MenuApi.getAllMenuByCategory(menuCategory);
