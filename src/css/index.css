@@ -6,36 +6,3 @@
     height: 20%;
 	box-shadow: 5px 5px 5px #dbdbdb;;
 }
-
-
-li{list-style:none;}
-
-.slide_wrapper{
-  
-	position: relative;
-	width: 100%;
-	margin: 0 auto;
-	height: 50%;
-  overflow: hidden;
-    
-	
-}
-.slides{  
-   
-	position: absolute;
-    left: 0;
-    top: 0;
-    transition: left 0.5s ease-out;
-	
-}
-.slides.animated{
-	transition: 0.5s ease-out;
-}
-@media (min-width:1000px){
-.slides li:not(:last-child){
-	
-	height: 20%;
-	margin-left: 10px;
-	float:left;
-}
-}
