@@ -8,8 +8,8 @@ export const MenuName = Object.freeze({
 
 
   export const SlideSize = Object.freeze({
-    slideWidth : 400,
-    slideMargin : 2,
+    slideWidth : 380,
+    slideMargin : 4,
     slideSpeed : 300,
     slideHeight : 300,
   })

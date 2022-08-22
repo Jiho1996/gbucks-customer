@@ -53,18 +53,15 @@ export default class App extends Menu{
     setSlide (category) {
         
             const slideList = $(`#${category}-slides_list`); 
-            const slideLen = document.querySelectorAll(`.slide-content`).length;
+            const slideLen = document.querySelectorAll(`#${category}-slide-content`).length;
             
             slideList.style.width = ((SlideSize.slideWidth + SlideSize.slideMargin) * (slideLen))+ 'px';
-            const slideContents = document.getElementsByClassName(`slide-content`)
+            const slideContents = document.querySelectorAll(`#${category}-slide-content`)
             
             const slideBtnNext = $(`#${category}-slide_btn_next`);
             const slideBtnPrev = $(`#${category}-slide_btn_prev`);
-
-            const slideSpeed = 300;
             
             for (let idx = 0; idx < slideContents.length;idx++){
-                
                 slideContents[idx].style.width = SlideSize.slideWidth+"px";
                 slideContents[idx].style.height = SlideSize.slideHeight+"px";
                 slideContents[idx].style.float = "left";
@@ -89,24 +86,29 @@ export default class App extends Menu{
             function slideInterval(){
                 return parseInt(SlideSize.slideWidth) + parseInt(SlideSize.slideMargin)
             }
+
+            function isLastElementshowed(location){
+                return location === (SlideSize.slideWidth + SlideSize.slideMargin) * (slideLen - 4)
+            }
+
+            function isLoctionOnFront(location){
+                return location === 0
+            }
         
             function moveSlide(){
                 let slideLocation = 0;
                 return( (isNextButton) => {
-                    slideList.style.transform = `translateX(-${slideLocation}px)`;
-                    
                     if (isNextButton) {
-                        if (slideLocation === (SlideSize.slideWidth + SlideSize.slideMargin) * (slideLen - 4) ) return;
+                        if ( isLastElementshowed(slideLocation) ) return;
                         slideLocation += slideInterval();
                     }
 
                     if (!isNextButton){
-                        if (slideLocation === 0 ) return;
+                        if ( isLoctionOnFront(slideLocation) ) return;
                         slideLocation -= slideInterval();
                      }
                      slideList.style.transform = `translateX(-${slideLocation}px)`;
                 })
-                slideList.style.transform = `translateX(-${slideLocation}px)`;
                 
                 // history 1
                     // if (slideList.style.left.includes('px')){
