@@ -57,7 +57,7 @@ export default class App extends Menu{
             const slideLen = document.querySelectorAll(`.${category}-slide-content`).length;
             const slideWidth = 400;
             const slideMargin = 2;
-            slideList.style.width = ((slideWidth + slideMargin) * slideLen) * 5 + 'px';
+            slideList.style.width = ((slideWidth + slideMargin) * (slideLen))+ 'px';
             const slideContents = document.getElementsByClassName(`${category}-slide-content`)
             
             const slideBtnNext = $(`#${category}-slide_btn_next`);
@@ -95,6 +95,7 @@ export default class App extends Menu{
                 console.log(slideLocation);
                 
                 if (direction) {
+                    if (slideLocation === (slideWidth + slideMargin) * (slideLen - 4) ) return;
                     slideLocation += (parseInt(slideWidth) + parseInt(slideMargin))
                     }
 
