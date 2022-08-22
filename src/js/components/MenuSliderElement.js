@@ -11,7 +11,7 @@ export default class MenuSliderElement extends Menu{
     template () {
         return this.$state.menu.map(ele => 
         `
-        <div id = ${ele.id} class = "${this.category}-slide-content" >${ele.name}</div> 
+        <div id = ${ele.id} class = "slide-content" >${ele.name}</div> 
         `
         ).join("");
     }

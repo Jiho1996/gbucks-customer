@@ -14,11 +14,11 @@ export default class App extends Menu{
        
         return `
         <header id="nav-container" data-component = "menu-info-bar"></header>
-        <div id = "espresso-container" data-component = "esspresso-menu-container"></div>
-        <div id = "frappuccino-container" data-component = "frappuccino-menu-container"></div>
-        <div id = "blended-container" data-component = "blended-menu-container"></div>
-        <div id = "teavana-container" data-component = "teavana-menu-container"></div>
-        <div id = "desert-container" data-component = "desert-menu-container"></div>
+        <div id = "espresso-container" class ="slide-container" data-component = "esspresso-menu-container"></div>
+        <div id = "frappuccino-container" class ="slide-container" data-component = "frappuccino-menu-container"></div>
+        <div id = "blended-container" class ="slide-container" data-component = "blended-menu-container"></div>
+        <div id = "teavana-container" class ="slide-container" data-component = "teavana-menu-container"></div>
+        <div id = "desert-container" class ="slide-container" data-component = "desert-menu-container"></div>
         `
     }
 
@@ -52,13 +52,14 @@ export default class App extends Menu{
     // 임시방편..
     setSlide (category) {
         
-            const slideList = $(`.${category}-slides_list`); 
-            let slideLocation = 0;
-            const slideLen = document.querySelectorAll(`.${category}-slide-content`).length;
+            const slideList = $(`#${category}-slides_list`); 
+            const slideLen = document.querySelectorAll(`.slide-content`).length;
+            console.log(slideLen)
             const slideWidth = 400;
             const slideMargin = 2;
             slideList.style.width = ((slideWidth + slideMargin) * (slideLen))+ 'px';
-            const slideContents = document.getElementsByClassName(`${category}-slide-content`)
+            const slideContents = document.getElementsByClassName(`slide-content`)
+            console.log(slideContents)
             
             const slideBtnNext = $(`#${category}-slide_btn_next`);
             const slideBtnPrev = $(`#${category}-slide_btn_prev`);
@@ -75,30 +76,42 @@ export default class App extends Menu{
             }
 
             // Copy first and last slide
-            function makeClone(){
-                for(let i = 0; i<slideLen; i++){
-                    let cloneSlide = slideContents[i].cloneNode(true);
+            // function makeClone(){
+            //     for(let i = 0; i<slideLen; i++){
+            //         let cloneSlide = slideContents[i].cloneNode(true);
                     
-                    slideList.appendChild(cloneSlide);
-                }
-                //updateWidth();
-            }
+            //         slideList.appendChild(cloneSlide);
+            //     }
+            //     //updateWidth();
+            // }
 
             // for (let i =0; i<3;i++){
             //     makeClone();
                 
             // }
-
+            function slideInterval(){
+                return parseInt(slideWidth) + parseInt(slideMargin)
+            }
         
-            function moveSlide(direction){
-                slideList.style.transform = `translateX(-${slideLocation}px)`;
-                console.log(slideLocation);
-                
-                if (direction) {
-                    if (slideLocation === (slideWidth + slideMargin) * (slideLen - 4) ) return;
-                    slideLocation += (parseInt(slideWidth) + parseInt(slideMargin))
+            function moveSlide(){
+                let slideLocation = 0;
+                return( (isRightButton) => {
+                    slideList.style.transform = `translateX(-${slideLocation}px)`;
+                    
+                    if (isRightButton) {
+                        if (slideLocation === (slideWidth + slideMargin) * (slideLen - 4) ) return;
+                        slideLocation += slideInterval();
                     }
 
+                    if (!isRightButton){
+                        if (slideLocation === 0 ) return;
+                        slideLocation -= slideInterval();
+                     }
+                     slideList.style.transform = `translateX(-${slideLocation}px)`;
+                })
+                slideList.style.transform = `translateX(-${slideLocation}px)`;
+                
+                // history 1
                     // if (slideList.style.left.includes('px')){
                     //     slideList.style.left = parseInt(slideList.style.left.slice(0, slideList.style.left.length - 2))
                     // }
@@ -107,19 +120,26 @@ export default class App extends Menu{
                     // console.log(slideList.style.left)
                     // return;
                 // };
-                if (!direction){
-                    if (slideLocation === 0 ) return;
-                    slideLocation -= (parseInt(slideWidth) + parseInt(slideMargin))
-                 }
-                 slideList.style.transform = `translateX(-${slideLocation}px)`;
-                 console.log(slideList.style.transform);
+
+                // history 2
+                // if (direction) {
+                //     if (slideLocation === (slideWidth + slideMargin) * (slideLen - 4) ) return;
+                //     slideLocation += (parseInt(slideWidth) + parseInt(slideMargin))
+                //     }
+
+                // if (!direction){
+                //     if (slideLocation === 0 ) return;
+                //     slideLocation -= (parseInt(slideWidth) + parseInt(slideMargin))
+                //  }
+                //  slideList.style.transform = `translateX(-${slideLocation}px)`;
+                //  console.log(slideList.style.transform);
             }
 
-    
+            const moveSlides = new moveSlide();
 
-            slideBtnPrev.addEventListener('click', () => moveSlide(0))
+            slideBtnPrev.addEventListener('click', () => moveSlides(false))
             
-            slideBtnNext.addEventListener('click', () => moveSlide(1))
+            slideBtnNext.addEventListener('click', () => moveSlides(true))
   
             }       
     

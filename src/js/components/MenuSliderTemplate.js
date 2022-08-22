@@ -12,9 +12,9 @@ export default class MenuSliderTemplate extends Menu{
     template (){
         return `
 
-            <ul class="${this.category}-slides_list"></ul>
+            <ul id ="${this.category}-slides_list" class="slides_list"></ul>
 
-            <div class="${this.category}-slide_btn_box">
+            <div id ="${this.category}-slide_btn_box" class="slide_btn_box">
               <button type="button"><img src = "../img/left.png" id="${this.category}-slide_btn_prev" class="slide_btn_prev"></button>
                     <button type="button"><img src = "../img/right.png" id="${this.category}-slide_btn_next" class="slide_btn_next"></button>
                         </div>   
@@ -26,7 +26,7 @@ export default class MenuSliderTemplate extends Menu{
 
     mount(){
         
-        new MenuSliderElement($(`.${this.category}-slides_list`), this.category ,this.$state);
+        new MenuSliderElement($(`.slides_list`), this.category ,this.$state);
     }
 
 
