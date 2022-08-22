@@ -2,7 +2,7 @@ import Menu from "./core/Menu.js"
 import {$} from "./api/dom.js"
 import TopNavBar from "./components/TopNavBar.js";
 import MenuSliderTemplate from "./components/MenuSliderTemplate.js"
-import {MenuName} from "./constants/constants.js";
+import {MenuName, SlideSize} from "./constants/constants.js";
 
 export default class App extends Menu{
     
@@ -54,12 +54,9 @@ export default class App extends Menu{
         
             const slideList = $(`#${category}-slides_list`); 
             const slideLen = document.querySelectorAll(`.slide-content`).length;
-            console.log(slideLen)
-            const slideWidth = 400;
-            const slideMargin = 2;
-            slideList.style.width = ((slideWidth + slideMargin) * (slideLen))+ 'px';
+            
+            slideList.style.width = ((SlideSize.slideWidth + SlideSize.slideMargin) * (slideLen))+ 'px';
             const slideContents = document.getElementsByClassName(`slide-content`)
-            console.log(slideContents)
             
             const slideBtnNext = $(`#${category}-slide_btn_next`);
             const slideBtnPrev = $(`#${category}-slide_btn_prev`);
@@ -68,8 +65,8 @@ export default class App extends Menu{
             
             for (let idx = 0; idx < slideContents.length;idx++){
                 
-                slideContents[idx].style.width = "400px";
-                slideContents[idx].style.height = "300px";
+                slideContents[idx].style.width = SlideSize.slideWidth+"px";
+                slideContents[idx].style.height = SlideSize.slideHeight+"px";
                 slideContents[idx].style.float = "left";
                 //slideContents[idx].style.flex = 1;
                 
@@ -90,20 +87,20 @@ export default class App extends Menu{
                 
             // }
             function slideInterval(){
-                return parseInt(slideWidth) + parseInt(slideMargin)
+                return parseInt(SlideSize.slideWidth) + parseInt(SlideSize.slideMargin)
             }
         
             function moveSlide(){
                 let slideLocation = 0;
-                return( (isRightButton) => {
+                return( (isNextButton) => {
                     slideList.style.transform = `translateX(-${slideLocation}px)`;
                     
-                    if (isRightButton) {
-                        if (slideLocation === (slideWidth + slideMargin) * (slideLen - 4) ) return;
+                    if (isNextButton) {
+                        if (slideLocation === (SlideSize.slideWidth + SlideSize.slideMargin) * (slideLen - 4) ) return;
                         slideLocation += slideInterval();
                     }
 
-                    if (!isRightButton){
+                    if (!isNextButton){
                         if (slideLocation === 0 ) return;
                         slideLocation -= slideInterval();
                      }
