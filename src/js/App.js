@@ -49,8 +49,19 @@ export default class App extends Menu{
     //    // this.setSlide(MenuName.desert)
 
         const $topNavBar = $('[data-component="menu-info-bar"]');
-        new TopNavBar($topNavBar);
+        
+        const moveToSelectRegion = () => {
+            $(".nav-container").addEventListener("click", (event) => {
+            event.preventDefault()
+            if (event.target.innerText === "About"){
+                $('.introduce-container').scrollIntoView({behavior : "smooth"});
+            }
+        })
+    }
 
+        new TopNavBar($topNavBar);
+        moveToSelectRegion()
+        
 
     }
 
