@@ -6,3 +6,7 @@
     height: 20%;
 	box-shadow: 5px 5px 5px #dbdbdb;;
 }
+
+#app{
+    background-image : url("../img/background.png");
+}
