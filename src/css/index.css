@@ -7,35 +7,27 @@
 	box-shadow: 5px 5px 5px #dbdbdb;;
 }
 
+#app{
+    background-image : url("../img/background.png");
+}
+.introduce-container{
+    padding: 10rem;
+}
+.introduce-about{
+    padding-bottom: 2rem;
+    font-family: 'Podkova';
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 130%;
+    letter-spacing: 0.14em;
+    color: #3E3B98;
+    text-align: center;
+}
 
-li{list-style:none;}
-
-.slide_wrapper{
-  
-	position: relative;
-	width: 100%;
-	margin: 0 auto;
-	height: 50%;
-  overflow: hidden;
-    
-	
-}
-.slides{  
-   
-	position: absolute;
-    left: 0;
-    top: 0;
-    transition: left 0.5s ease-out;
-	
-}
-.slides.animated{
-	transition: 0.5s ease-out;
-}
-@media (min-width:1000px){
-.slides li:not(:last-child){
-	
-	height: 20%;
-	margin-left: 10px;
-	float:left;
-}
+.introduce-explain{
+    font-family: 'Stylish', sans-serif;
+    font-size: 28px;
+    line-height: 200%;
+    color: #B2B2B2;;
+    text-align: center;
 }

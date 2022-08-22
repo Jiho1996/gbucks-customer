@@ -24,8 +24,7 @@ export default class Menu{
 
     render () {
         this.$domNode.innerHTML = this.template();
-        console.log(this.$domNode.innerHTML)
-        
+
         this.mount();
     }
 

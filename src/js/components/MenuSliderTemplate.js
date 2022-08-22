@@ -1,6 +1,7 @@
 import Menu from "../core/Menu.js"
-import MenuSlider from "./MenuSlider.js"
+import MenuSliderElement from "./MenuSliderElement.js"
 import {$} from "../api/dom.js"
+
 
 export default class MenuSliderTemplate extends Menu{
 
@@ -10,19 +11,22 @@ export default class MenuSliderTemplate extends Menu{
 
     template (){
         return `
-        <div class="slide_wrap">
-            <div class="slide_box">
-                <div class="${this.category}-slide_list">
-                
-            </div>
-        </div>
-    </div>`
+
+            <ul id ="${this.category}-slides_list" class="slides_list"></ul>
+
+            <div id ="${this.category}-slide_btn_box" class="slide_btn_box">
+              <button type="button"><img src = "../img/left.png" id="${this.category}-slide_btn_prev" class="slide_btn_prev"></button>
+                    <button type="button"><img src = "../img/right.png" id="${this.category}-slide_btn_next" class="slide_btn_next"></button>
+                        </div>   
+
+       
+                    `
         
     }
 
     mount(){
         
-        new MenuSlider($(`.${this.category}-slide_list`), this.category ,this.$state);
+        new MenuSliderElement($(`.slides_list`), this.category ,this.$state);
     }
 
 
