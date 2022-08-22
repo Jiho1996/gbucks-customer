@@ -60,12 +60,12 @@ button{
 }
 
 .slide-content{
+  font-family: 'Stylish', sans-serif;
   text-align: center;
-  justify-content: center;
   margin-left: 2px;
   border: double;
   border-width: thin;
-  border-color: black;
+  
 }
 
 .slides_list.animated{

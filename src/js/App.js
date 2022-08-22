@@ -3,6 +3,7 @@ import {$} from "./api/dom.js"
 import TopNavBar from "./components/TopNavBar.js";
 import MenuSliderTemplate from "./components/MenuSliderTemplate.js"
 import {MenuName, SlideSize} from "./constants/constants.js";
+import CafeIntroduce from "./components/CafeIntroduce.js";
 
 export default class App extends Menu{
     
@@ -14,6 +15,7 @@ export default class App extends Menu{
        
         return `
         <header id="nav-container" data-component = "menu-info-bar"></header>
+        <div data-component ="cafe-introduce-container" class ="introduce-container"></div>
         <div id = "espresso-container" class ="slide-container" data-component = "esspresso-menu-container"></div>
         <div id = "frappuccino-container" class ="slide-container" data-component = "frappuccino-menu-container"></div>
         <div id = "blended-container" class ="slide-container" data-component = "blended-menu-container"></div>
@@ -26,6 +28,9 @@ export default class App extends Menu{
         const $espressoMenuSlider = $('[data-component="esspresso-menu-container"]');
         new MenuSliderTemplate($espressoMenuSlider, MenuName.espresso ,this.$state);
         this.setSlide(MenuName.espresso)
+
+        const $cafeIntroduce = $('[data-component="cafe-introduce-container"]');
+        new CafeIntroduce($cafeIntroduce)
 
     //     const $frappuccinoMenuSlider = $('[data-component="frappuccino-menu-container"]');
     //     new MenuSliderTemplate($frappuccinoMenuSlider, MenuName.frappuccino ,this.$state)

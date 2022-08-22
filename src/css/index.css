@@ -10,3 +10,24 @@
 #app{
     background-image : url("../img/background.png");
 }
+.introduce-container{
+    padding: 10rem;
+}
+.introduce-about{
+    padding-bottom: 2rem;
+    font-family: 'Podkova';
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 130%;
+    letter-spacing: 0.14em;
+    color: #3E3B98;
+    text-align: center;
+}
+
+.introduce-explain{
+    font-family: 'Stylish', sans-serif;
+    font-size: 28px;
+    line-height: 200%;
+    color: #B2B2B2;;
+    text-align: center;
+}
