@@ -1,6 +1,6 @@
 li{list-style:none;}
 
-#espresso-container{
+.slide-container{
 
 	position: flex;
 	width: 100%;
@@ -37,7 +37,7 @@ button{
   background-color: transparent;
   cursor: pointer;
 }
-.espresso-slide_btn_box{
+.slide_btn_box{
   background-color: transparent;
   
   height: 40px;
@@ -48,26 +48,31 @@ button{
 
 }
 
-.espresso-slides_list{  
+.slides_list{  
     display: absolute;
     width: 100%;
-    height: 300px;
+    height: 340px;
     left: 0px;
-    transition: left 0.5s ease-out;
+    transition: transform 1s ease-out;
+    
     overflow: hidden;
 	
 }
 
-.espresso-slide-content{
+.slide-content{
   text-align: center;
   justify-content: center;
+  margin-left: 2px;
+  border: double;
+  border-width: thin;
+  border-color: black;
 }
 
-.espresso-slides_list.animated{
+.slides_list.animated{
 	transition: 0.5s ease-out;
 }
 @media (min-width:1000px){
-  .espresso-slides_list li:not(:last-child){
+  .slides_list li:not(:last-child){
 	
 	height: 20%;
 	float:left;
