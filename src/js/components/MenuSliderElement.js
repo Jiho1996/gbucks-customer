@@ -5,12 +5,13 @@ export default class MenuSliderElement extends Menu{
     
     async setup(){
         this.$state = this.$props
+        console.log(this.$state.menu)
     }
 
     template () {
         return this.$state.menu.map(ele => 
         `
-        <div class = "${this.category}-slide-content" >${ele.name}</div> 
+        <div id = ${ele.id} class = "${this.category}-slide-content" >${ele.name}</div> 
         `
         ).join("");
     }

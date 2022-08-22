@@ -60,8 +60,8 @@ export default class App extends Menu{
             slideList.style.width = ((slideWidth + slideMargin) * slideLen) * 5 + 'px';
             const slideContents = document.getElementsByClassName(`${category}-slide-content`)
             
-            const slideBtnNext = $(`.${category}-slide_btn_next`);
-            const slideBtnPrev = $(`.${category}-slide_btn_prev`);
+            const slideBtnNext = $(`#${category}-slide_btn_next`);
+            const slideBtnPrev = $(`#${category}-slide_btn_prev`);
 
             const slideSpeed = 300;
             
@@ -84,17 +84,18 @@ export default class App extends Menu{
                 //updateWidth();
             }
 
-            for (let i =0; i<3;i++){
-                makeClone();
+            // for (let i =0; i<3;i++){
+            //     makeClone();
                 
-            }
+            // }
 
+        
             function moveSlide(direction){
                 slideList.style.transform = `translateX(-${slideLocation}px)`;
+                console.log(slideLocation);
                 
                 if (direction) {
                     slideLocation += (parseInt(slideWidth) + parseInt(slideMargin))
-                        
                     }
 
                     // if (slideList.style.left.includes('px')){
@@ -106,14 +107,8 @@ export default class App extends Menu{
                     // return;
                 // };
                 if (!direction){
-                    if (slideList.style.left.includes('px')){
-                        slideList.style.left = parseInt(slideList.style.left.slice(0, slideList.style.left.length - 2))
-                    }
-                    slideList.style.left -= parseInt(slideWidth + slideMargin)
-                    slideList.style.left += 'px'
-                    console.log(slideList.style.left, slideWidth + slideMargin)
-                    return;
-
+                    if (slideLocation === 0 ) return;
+                    slideLocation -= (parseInt(slideWidth) + parseInt(slideMargin))
                  }
                  slideList.style.transform = `translateX(-${slideLocation}px)`;
                  console.log(slideList.style.transform);

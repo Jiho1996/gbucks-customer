@@ -2,6 +2,7 @@ import Menu from "../core/Menu.js"
 import MenuSliderElement from "./MenuSliderElement.js"
 import {$} from "../api/dom.js"
 
+
 export default class MenuSliderTemplate extends Menu{
 
     setup(){
@@ -14,8 +15,8 @@ export default class MenuSliderTemplate extends Menu{
             <ul class="${this.category}-slides_list"></ul>
 
             <div class="${this.category}-slide_btn_box">
-              <button type="button" class="${this.category}-slide_btn_prev">Prev</button>
-                    <button type="button" class="${this.category}-slide_btn_next">Next</button>
+              <button type="button"><img src = "../img/left.png" id="${this.category}-slide_btn_prev" class="slide_btn_prev"></button>
+                    <button type="button"><img src = "../img/right.png" id="${this.category}-slide_btn_next" class="slide_btn_next"></button>
                         </div>   
 
        
