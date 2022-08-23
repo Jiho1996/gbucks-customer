@@ -28,6 +28,84 @@
     font-family: 'Stylish', sans-serif;
     font-size: 28px;
     line-height: 200%;
-    color: #B2B2B2;;
+    color: #B2B2B2;
     text-align: center;
+}
+
+.how-to-use-container{
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 30rem;
+    display: flex;
+    margin-bottom: 10rem;
+}
+
+#img-coffee-head{
+    
+    background-image: url('../img/coffee1.png');
+    background-position: center;
+    height: 100%;
+    width: 300px;
+    flex-grow: 1;
+    
+}
+
+#img-coffee-tail{
+    background-image: url('../img/coffee2.png');
+    background-position: center;
+    height: 200px;
+    width: 300px;
+    flex-grow: 1;
+    margin: 2px;
+}
+
+#how-to-use-mean{
+    align-content: flex-end;
+    background-color: rgb(245, 245, 255);
+    flex-grow : 2;
+    margin-left: 10px;
+    font-size: 12px;
+    
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+#how-to-use-mean > p{
+    line-height: 20px;
+    font-family: 'Podkova', sans-serif;
+    margin-top: 2%;
+    padding-left: 6%;
+    margin-bottom: 6%;
+}
+
+#how-to-use-destination{
+    flex-grow: 1;
+    
+}
+
+#how-to-use-ticket{
+    flex-grow: 1;
+}
+
+
+.how-to-use-first-contents{
+    width: 70%;
+    height: 50%;
+    display: flex;
+    
+}
+
+ 
+
+.how-to-use-second-contents{
+    width: 70%;
+    display: flex;
+}
+
+#mean-logo{
+    padding-left: 6%;
+    width: 40%;
 }
