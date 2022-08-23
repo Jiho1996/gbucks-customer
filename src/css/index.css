@@ -45,7 +45,7 @@
     
     background-image: url('../img/coffee1.png');
     background-position: center;
-    height: 100%;
+    height: 90%;
     width: 300px;
     flex-grow: 1;
     
@@ -54,19 +54,19 @@
 #img-coffee-tail{
     background-image: url('../img/coffee2.png');
     background-position: center;
-    height: 200px;
+    height: 100%;
     width: 300px;
     flex-grow: 1;
-    margin: 2px;
+    
 }
 
 #how-to-use-mean{
     align-content: flex-end;
     background-color: rgb(245, 245, 255);
     flex-grow : 2;
-    margin-left: 10px;
+    margin-left: 20px;
     font-size: 12px;
-    
+    height: 90%;
     text-align: start;
     display: flex;
     flex-direction: column;
@@ -75,20 +75,55 @@
 
 #how-to-use-mean > p{
     line-height: 20px;
-    font-family: 'Podkova', sans-serif;
-    margin-top: 2%;
+    
     padding-left: 6%;
-    margin-bottom: 6%;
+    margin-bottom: 1.5%;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 #how-to-use-destination{
     flex-grow: 1;
-    
+    background-image: url('../img/destination2.png');
+    background-size : cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 2%;
+    color: white;
+    font-weight: bold;
+    font-size: x-large;
+    font-family: 'Courier New', Courier, monospace;
+}
+#how-to-use-destination > p{
+    margin-top: 10%;
+    color: white;
+    font-size: medium;
+    font-weight: bold;
 }
 
 #how-to-use-ticket{
     flex-grow: 1;
+    background-image: url('../img/music.png');
+    background-size: cover;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 2%;
+    color: white;
+    font-weight: bold;
+    font-size: x-large;
+    font-family: 'Courier New', Courier, monospace;
 }
+
+#how-to-use-ticket>p{
+    margin-top: 10%;
+    color: white;
+    font-size: medium;
+    font-weight: bold;
+}
+
 
 
 .how-to-use-first-contents{
@@ -102,10 +137,12 @@
 
 .how-to-use-second-contents{
     width: 70%;
+    height: 50%;
     display: flex;
 }
 
 #mean-logo{
     padding-left: 6%;
     width: 40%;
+    
 }
