@@ -1,6 +1,4 @@
 import Menu from "../core/Menu.js"
-import {$} from "../api/dom.js"
-
 
 export default class TopNavBar extends Menu{
 

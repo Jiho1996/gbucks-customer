@@ -1,5 +1,4 @@
 import Menu from "../core/Menu.js"
-import {$} from "../api/dom.js"
 
 export default class MenuSliderElement extends Menu{
     
