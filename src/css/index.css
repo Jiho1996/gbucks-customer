@@ -28,8 +28,8 @@
     font-family: 'Podkova';
     font-weight: 700;
     font-size: 34px;
-    height: 130px;
-    line-height: 130px;
+    height: 20rem;
+    line-height: 20rem;
     letter-spacing: 0.14em;
     color: #3E3B98;
     text-align: center;
@@ -49,7 +49,6 @@
     width: 100%;
     height: 30rem;
     display: flex;
-    margin-bottom: 10rem;
 }
 
 #img-coffee-head{

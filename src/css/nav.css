@@ -40,28 +40,3 @@
     letter-spacing: 0.14em;
 
 }
-
-
-/* .nav-container{
-    position: fixed;
-    top: 0;
-    background: #fafafa;
-    display:flex;
-    justify-content: flex-end;
-    float: right;
-    width: 100%;
-    margin:0;
-    padding:0;
-    list-style-type:none;
-    z-index:3;
-
-}
-
-.nav-item{
-    padding: 15px;
-    right: 0px;
-    cursor:pointer;
-    margin-right: 4%;
-    z-index: 2;
-}
-
