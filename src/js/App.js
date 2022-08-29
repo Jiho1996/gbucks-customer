@@ -5,11 +5,13 @@ import MenuSliderTemplate from "./components/MenuSliderTemplate.js"
 import {MenuName, SlideSize} from "./constants/constants.js";
 import CafeIntroduce from "./components/CafeIntroduce.js";
 import { HowToUse } from "./components/HowToUse.js";
+import Model from "./Model/Model.js";
 
 export default class App extends Menu{
     
     async setup(){
         this.$state = this.$props;
+        this.model = new Model()
     }
 
     template () {
@@ -20,7 +22,7 @@ export default class App extends Menu{
         <div data-component ="cafe-introduce-container" class ="introduce-container"></div>
         <div data-component ="cafe-how-to-use-container" class ="how-to-use-container"></div>
         <div id = "Destination">Destination</div>
-        <div id = "espresso-container" class ="slide-container" data-component = "esspresso-menu-container"></div>
+        <div id = "espresso-container" class ="slide-container" data-component = "espresso-menu-container"></div>
         <div id = "frappuccino-container" class ="slide-container" data-component = "frappuccino-menu-container"></div>
         <div id = "blended-container" class ="slide-container" data-component = "blended-menu-container"></div>
         <div id = "teavana-container" class ="slide-container" data-component = "teavana-menu-container"></div>
@@ -36,41 +38,11 @@ export default class App extends Menu{
         const $howtousecafe = $('[data-component="cafe-how-to-use-container"]');
         new HowToUse($howtousecafe);
 
-        const $espressoMenuSlider = $('[data-component="esspresso-menu-container"]');
-        new MenuSliderTemplate($espressoMenuSlider, MenuName.espresso ,this.$state);
-        this.setSlide(MenuName.espresso);
-
-        const $frappuccinoMenuSlider = $('[data-component="frappuccino-menu-container"]');
-        new MenuSliderTemplate($frappuccinoMenuSlider, MenuName.frappuccino ,this.$state)
-        this.setSlide(MenuName.frappuccino);
-
-        const $blendedMenuSlider = $('[data-component="blended-menu-container"]');
-        new MenuSliderTemplate($blendedMenuSlider, MenuName.blended ,this.$state);
-        this.setSlide(MenuName.blended)
-
-        const $teavanaMenuSlider = $('[data-component="teavana-menu-container"]');
-        new MenuSliderTemplate($teavanaMenuSlider,MenuName.teavana ,this.$state);
-        this.setSlide(MenuName.teavana)
-
-        const $desertMenuSlider = $('[data-component="desert-menu-container"]');
-        new MenuSliderTemplate($desertMenuSlider, MenuName.desert ,this.$state);
-        this.setSlide(MenuName.desert)
-
-    //     const $frappuccinoMenuSlider = $('[data-component="frappuccino-menu-container"]');
-    //     new MenuSliderTemplate($frappuccinoMenuSlider, MenuName.frappuccino ,this.$state)
-    //     //this.setSlide(MenuName.frappuccino);
-
-    //     const $blendedMenuSlider = $('[data-component="blended-menu-container"]');
-    //     new MenuSliderTemplate($blendedMenuSlider, MenuName.blended ,this.$state);
-    //     //this.setSlide(MenuName.blended)
-
-    //     const $teavanaMenuSlider = $('[data-component="teavana-menu-container"]');
-    //     new MenuSliderTemplate($teavanaMenuSlider,MenuName.teavana ,this.$state);
-    //     //this.setSlide(MenuName.teavana)
-        
-    //     const $desertMenuSlider = $('[data-component="desert-menu-container"]');
-    //     new MenuSliderTemplate($desertMenuSlider, MenuName.desert ,this.$state);
-    //    // this.setSlide(MenuName.desert)
+        Object.keys(this.$state).forEach((ele) =>{
+            console.log($(`[data-component="${ele}-menu-container"]`))
+            new MenuSliderTemplate($(`[data-component="${ele}-menu-container"]`), ele ,this.$state);
+            this.setSlide(ele);
+        })
 
         const $topNavBar = $('[data-component="menu-info-bar"]');
 
