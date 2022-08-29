@@ -19,7 +19,7 @@ export default class App extends Menu{
 
         <div data-component ="cafe-introduce-container" class ="introduce-container"></div>
         <div data-component ="cafe-how-to-use-container" class ="how-to-use-container"></div>
-
+        <div id = "Destination">Destination</div>
         <div id = "espresso-container" class ="slide-container" data-component = "esspresso-menu-container"></div>
         <div id = "frappuccino-container" class ="slide-container" data-component = "frappuccino-menu-container"></div>
         <div id = "blended-container" class ="slide-container" data-component = "blended-menu-container"></div>
@@ -30,15 +30,15 @@ export default class App extends Menu{
     }
 
     mount (){
-        const $espressoMenuSlider = $('[data-component="esspresso-menu-container"]');
-        new MenuSliderTemplate($espressoMenuSlider, MenuName.espresso ,this.$state);
-        this.setSlide(MenuName.espresso);
-
         const $cafeIntroduce = $('[data-component="cafe-introduce-container"]');
         new CafeIntroduce($cafeIntroduce);
 
         const $howtousecafe = $('[data-component="cafe-how-to-use-container"]');
         new HowToUse($howtousecafe);
+
+        const $espressoMenuSlider = $('[data-component="esspresso-menu-container"]');
+        new MenuSliderTemplate($espressoMenuSlider, MenuName.espresso ,this.$state);
+        this.setSlide(MenuName.espresso);
 
     //     const $frappuccinoMenuSlider = $('[data-component="frappuccino-menu-container"]');
     //     new MenuSliderTemplate($frappuccinoMenuSlider, MenuName.frappuccino ,this.$state)
@@ -69,8 +69,6 @@ export default class App extends Menu{
 
         new TopNavBar($topNavBar);
         moveToSelectRegion()
-        
-
     }
 
     // 임시방편..
@@ -79,7 +77,7 @@ export default class App extends Menu{
             const slideList = $(`#${category}-slides_list`); 
             const slideLen = document.querySelectorAll(`#${category}-slide-content`).length;
             
-            slideList.style.width = ((SlideSize.slideWidth + SlideSize.slideMargin) * (slideLen))+ 'px';
+            slideList.style.width = ((SlideSize.slideWidth + SlideSize.slideMargin) * (slideLen))+ 'vw';
             const slideContents = document.querySelectorAll(`#${category}-slide-content`)
             
             const slideBtnNext = $(`#${category}-slide_btn_next`);
@@ -108,11 +106,11 @@ export default class App extends Menu{
                 
             // }
             function slideInterval(){
-                return parseInt(SlideSize.slideWidth) + parseInt(SlideSize.slideMargin)
+                return (parseInt(SlideSize.slideWidth) + parseInt(SlideSize.slideMargin))
             }
 
             function isLastElementshowed(location){
-                return location === (SlideSize.slideWidth + SlideSize.slideMargin) * (slideLen - 4)
+                return location >= (SlideSize.slideWidth + SlideSize.slideMargin) * (slideLen - 4)  
             }
 
             function isLoctionOnFront(location){
