@@ -40,6 +40,22 @@ export default class App extends Menu{
         new MenuSliderTemplate($espressoMenuSlider, MenuName.espresso ,this.$state);
         this.setSlide(MenuName.espresso);
 
+        const $frappuccinoMenuSlider = $('[data-component="frappuccino-menu-container"]');
+        new MenuSliderTemplate($frappuccinoMenuSlider, MenuName.frappuccino ,this.$state)
+        this.setSlide(MenuName.frappuccino);
+
+        const $blendedMenuSlider = $('[data-component="blended-menu-container"]');
+        new MenuSliderTemplate($blendedMenuSlider, MenuName.blended ,this.$state);
+        this.setSlide(MenuName.blended)
+
+        const $teavanaMenuSlider = $('[data-component="teavana-menu-container"]');
+        new MenuSliderTemplate($teavanaMenuSlider,MenuName.teavana ,this.$state);
+        this.setSlide(MenuName.teavana)
+
+        const $desertMenuSlider = $('[data-component="desert-menu-container"]');
+        new MenuSliderTemplate($desertMenuSlider, MenuName.desert ,this.$state);
+        this.setSlide(MenuName.desert)
+
     //     const $frappuccinoMenuSlider = $('[data-component="frappuccino-menu-container"]');
     //     new MenuSliderTemplate($frappuccinoMenuSlider, MenuName.frappuccino ,this.$state)
     //     //this.setSlide(MenuName.frappuccino);

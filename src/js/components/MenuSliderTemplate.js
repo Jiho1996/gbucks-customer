@@ -8,6 +8,7 @@ export default class MenuSliderTemplate extends Menu{
 
     setup(){
         this.$state = this.$props[this.category]
+        console.log(this.$state, this.category)
     }
 
     template (){
@@ -30,7 +31,7 @@ export default class MenuSliderTemplate extends Menu{
 
     mount(){
         
-        new MenuSliderElement($(`.slides_list`), this.category ,this.$state);
+        new MenuSliderElement($(`#${this.category}-slides_list`), this.category ,this.$state);
     }
 
 
