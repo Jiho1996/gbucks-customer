@@ -15,7 +15,7 @@ export default class MenuSliderTemplate extends Menu{
         return `
         <div class = "slider-title-explain-container">
             <p id = "${this.category}-title" class ="title-class"}>${this.category.toUpperCase()}</p>
-            <p id ="${this.category}-explain" class ="explain-class"}>${explanation.espressoExplain}</p>
+            <p id ="${this.category}-explain" class ="explain-class"}>${explanation.menuExplain[this.category]}</p>
             
         </div>
 

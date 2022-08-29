@@ -18,7 +18,13 @@ export const MenuName = Object.freeze({
 
     Destination : `Destination`,
 
-    espressoExplain : `풍미 깊은 에스프레소 속으로 퐁당`,
+    menuExplain :{
+      espresso : `풍미 깊은 에스프레소 속으로 퐁당`,
+      frappuccino : `새콤달콤 프라푸치노 속으로 퐁당`,
+      blended : `시원한 블렌디드 속으로 퐁당`,
+      teavana : `고급진 티바나 속으로 퐁당`,
+      desert : `달콤한 디저트 속으로 퐁당`
+    },
 
     introduce : `PLOP에서의 순간이 일상속에서 짧은 여행이 되기를 바랍니다.<br>
     주변 시선은 잠시 잊고 당신이 빠지고 싶은 상황으로 떠나보세요<br>
