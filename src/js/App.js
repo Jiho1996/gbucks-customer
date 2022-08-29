@@ -80,9 +80,11 @@ export default class App extends Menu{
             if (event.target.innerText === "About"){
                 $('.introduce-container').scrollIntoView({behavior : "smooth"});
             }
+            if (event.target.innerText === "Travel"){
+                $('#Destination').scrollIntoView({behavior : "smooth"});
+            }
         })
     }
-
         new TopNavBar($topNavBar);
         moveToSelectRegion()
     }
