@@ -2,12 +2,9 @@ import Menu from "../core/Menu.js"
 
 export default class MenuSliderElement extends Menu{
     
-    async setup(){
-        this.$state = this.$props
-    }
 
     template () {
-        return this.$state.menu.map(ele => 
+        return this.$props.menu.map(ele => 
         `
         <div id = "${this.category}-slide-content" class = "slide-content" >${ele.name}</div> 
         `

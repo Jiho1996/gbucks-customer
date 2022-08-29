@@ -15,12 +15,23 @@ export const MenuName = Object.freeze({
   });
 
   export const explanation = Object.freeze({
+
+    Destination : `Destination`,
+
+    menuExplain :{
+      espresso : `풍미 깊은 에스프레소 속으로 퐁당`,
+      frappuccino : `새콤달콤 프라푸치노 속으로 퐁당`,
+      blended : `시원한 블렌디드 속으로 퐁당`,
+      teavana : `고급진 티바나 속으로 퐁당`,
+      desert : `달콤한 디저트 속으로 퐁당`
+    },
+
     introduce : `PLOP에서의 순간이 일상속에서 짧은 여행이 되기를 바랍니다.<br>
     주변 시선은 잠시 잊고 당신이 빠지고 싶은 상황으로 떠나보세요<br>
     PLOP이 당신의 몰입을 도와줄 것입니다.`,
 
     howToUseMean : `
-    <p>반복되는 일상이 지루하거나 기분전환이 필요할 때</p>
+    <p>반복되는 일상이 지루하거나 기분전환이 필요할 때...</p>
     <p>사람들은 <b>색다른 공간</b>에서 여유를 즐기고 에너지를 충전하고 싶어합니다.<br>
     그런 당신에게 PLOP은 일상은 잠시 잊고 <b>영감을 회복</b>할 수 있는 신개념 카페입니다. </p>
     `,
