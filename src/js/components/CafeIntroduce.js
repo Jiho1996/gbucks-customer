@@ -1,5 +1,5 @@
 import {explanation} from "../constants/constants.js"
-import Menu from "../core/Menu.js"
+import Menu from "./core/Menu.js"
 
 export default class CafeIntroduce extends Menu{
     template (){

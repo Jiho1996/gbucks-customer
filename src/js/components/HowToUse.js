@@ -1,4 +1,4 @@
-import Menu from "../core/Menu.js"
+import Menu from "./core/Menu.js"
 import { explanation } from "../constants/constants.js"
 
 
