@@ -35,6 +35,39 @@
     - [ ] 재사용하기 좋은 패턴 적용
     - [V] 슬라이더 구현하기 갯수에 맞게
     - [ ] MVC 패턴 브랜치 만들어보기.
-        - [ ] Model 분리
-        - [ ] View 분리
-        - [ ] Controller 분리
+        - [V] Model 분리
+        - [V] View 분리
+        - [V] Controller 분리
+
+        * 분리 규칙
+
+        Model은 쉽게 말해 상태를 관리하는 자료구조라고 보면 된다.
+
+        
+        Model은 Controller와 View에 의존하지 않아야 한다.
+
+        (Model 내부에 Controller와 View에 관련된 코드가  있으면 안된다.
+
+ 
+
+        View는 Model에만 의존해야 하고, Controller에는 의존해선 안된다.
+
+        (View 내부에 Model 코드만 있을 수 있고, Controller 코드가 있으면 안된다.
+
+ 
+
+        View가 Model로 부터 데이터를 받을 때는,
+
+        사용자마다 다르게 보여주어야 하는 데이터에 대해서만 받아야한다. => 프로젝트 특성 상 일단 데이터 관리를 따로 분리
+
+ 
+
+        Controller는 Model과 View에 의존해도 되다.
+
+        (Controller 내부에는 Model과 View의 코드가 있을 수 있다.
+
+ 
+
+        View가 Model로 부터 데이터를 받을 때, 반드시 Controller에서 받아야 한다.
+
+ 
