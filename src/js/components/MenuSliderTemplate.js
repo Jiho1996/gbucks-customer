@@ -1,4 +1,4 @@
-import Menu from "../core/Menu.js"
+import Menu from "./core/Menu.js"
 import MenuSliderElement from "./MenuSliderElement.js"
 import {$} from "../api/dom.js"
 import { explanation } from "../constants/constants.js"
@@ -8,7 +8,6 @@ export default class MenuSliderTemplate extends Menu{
 
     setup(){
         this.$state = this.$props[this.category]
-        console.log(this.$state, this.category)
     }
 
     template (){
