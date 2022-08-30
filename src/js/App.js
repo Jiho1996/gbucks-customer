@@ -1,4 +1,4 @@
-import Menu from "./core/Menu.js"
+import Menu from "./components/core/Menu.js"
 import {$} from "./api/dom.js"
 import TopNavBar from "./components/TopNavBar.js";
 import MenuSliderTemplate from "./components/MenuSliderTemplate.js"
@@ -6,47 +6,61 @@ import {MenuName, SlideSize} from "./constants/constants.js";
 import CafeIntroduce from "./components/CafeIntroduce.js";
 import { HowToUse } from "./components/HowToUse.js";
 import Model from "./Model/Model.js";
+import Container from "./components/container.js";
 
-export default class App extends Menu{
+export default class App{
     
-    async setup(){
+    constructor(domNode, props){
+        this.$domNode = domNode
+        this.$state = props
+        this.render()
+    }
+    
+    setup(){
         this.$state = this.$props;
         this.model = new Model()
+        
     }
 
-    template () {
-       
-        return `
-        <header id="nav-container" data-component = "menu-info-bar"></header>
-
-        <div data-component ="cafe-introduce-container" class ="introduce-container"></div>
-        <div data-component ="cafe-how-to-use-container" class ="how-to-use-container"></div>
-        <div id = "Destination">Destination</div>
-        <div id = "espresso-container" class ="slide-container" data-component = "espresso-menu-container"></div>
-        <div id = "frappuccino-container" class ="slide-container" data-component = "frappuccino-menu-container"></div>
-        <div id = "blended-container" class ="slide-container" data-component = "blended-menu-container"></div>
-        <div id = "teavana-container" class ="slide-container" data-component = "teavana-menu-container"></div>
-        <div id = "desert-container" class ="slide-container" data-component = "desert-menu-container"></div>
-        
-        `
+    render (){
+        this.mount()
     }
 
     mount (){
-        const $cafeIntroduce = $('[data-component="cafe-introduce-container"]');
-        new CafeIntroduce($cafeIntroduce);
 
-        const $howtousecafe = $('[data-component="cafe-how-to-use-container"]');
-        new HowToUse($howtousecafe);
+        new Container($("#app"))
+
+        new CafeIntroduce($('[data-component="cafe-introduce-container"]'));
+
+        new HowToUse($('[data-component="cafe-how-to-use-container"]'));
 
         Object.keys(this.$state).forEach((ele) =>{
-            console.log($(`[data-component="${ele}-menu-container"]`))
             new MenuSliderTemplate($(`[data-component="${ele}-menu-container"]`), ele ,this.$state);
             this.setSlide(ele);
         })
+        // const $espressoMenuSlider = $('[data-component="esspresso-menu-container"]');
+        // new MenuSliderTemplate($espressoMenuSlider, MenuName.espresso ,this.$state);
+        // this.setSlide(MenuName.espresso);
 
-        const $topNavBar = $('[data-component="menu-info-bar"]');
+        // const $frappuccinoMenuSlider = $('[data-component="frappuccino-menu-container"]');
+        // new MenuSliderTemplate($frappuccinoMenuSlider, MenuName.frappuccino ,this.$state)
+        // this.setSlide(MenuName.frappuccino);
 
-        const moveToSelectRegion = () => {
+        // const $blendedMenuSlider = $('[data-component="blended-menu-container"]');
+        // new MenuSliderTemplate($blendedMenuSlider, MenuName.blended ,this.$state);
+        // this.setSlide(MenuName.blended)
+
+        // const $teavanaMenuSlider = $('[data-component="teavana-menu-container"]');
+        // new MenuSliderTemplate($teavanaMenuSlider,MenuName.teavana ,this.$state);
+        // this.setSlide(MenuName.teavana)
+
+        // const $desertMenuSlider = $('[data-component="desert-menu-container"]');
+        // new MenuSliderTemplate($desertMenuSlider, MenuName.desert ,this.$state);
+        // this.setSlide(MenuName.desert)
+
+        
+        new TopNavBar($('[data-component="menu-info-bar"]'));
+        const moveToSelectRegion = (() => {
             $(".nav-container").addEventListener("click", (event) => {
             event.preventDefault()
             if (event.target.innerText === "About"){
@@ -56,9 +70,7 @@ export default class App extends Menu{
                 $('#Destination').scrollIntoView({behavior : "smooth"});
             }
         })
-    }
-        new TopNavBar($topNavBar);
-        moveToSelectRegion()
+    })();
     }
 
     // 임시방편..
@@ -72,29 +84,20 @@ export default class App extends Menu{
             
             const slideBtnNext = $(`#${category}-slide_btn_next`);
             const slideBtnPrev = $(`#${category}-slide_btn_prev`);
-            
-            for (let idx = 0; idx < slideContents.length;idx++){
+
+            slideContents.forEach((ele, idx) => {
                 slideContents[idx].style.width = SlideSize.slideWidth+"px";
                 slideContents[idx].style.height = SlideSize.slideHeight+"px";
                 slideContents[idx].style.float = "left";
-                //slideContents[idx].style.flex = 1;
-                
-            }
-
-            // Copy first and last slide
-            // function makeClone(){
-            //     for(let i = 0; i<slideLen; i++){
-            //         let cloneSlide = slideContents[i].cloneNode(true);
-                    
-            //         slideList.appendChild(cloneSlide);
-            //     }
-            //     //updateWidth();
+            })
+            
+            // for (let idx = 0; idx < slideContents.length;idx++){
+            //     slideContents[idx].style.width = SlideSize.slideWidth+"px";
+            //     slideContents[idx].style.height = SlideSize.slideHeight+"px";
+            //     slideContents[idx].style.float = "left";
+            //     //slideContents[idx].style.flex = 1;
             // }
 
-            // for (let i =0; i<3;i++){
-            //     makeClone();
-                
-            // }
             function slideInterval(){
                 return (parseInt(SlideSize.slideWidth) + parseInt(SlideSize.slideMargin))
             }
