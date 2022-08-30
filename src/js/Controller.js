@@ -21,13 +21,13 @@ export default class App{
     }
     
     async setup (){
-        Object.keys(this.menu)
-        .forEach(
+        await Promise.all(Object.keys(this.menu)
+        .map(
             async (ele) =>{
                 this.menu[ele] =  await this.model.getMenuObjectByCategory(ele)
-                this.render();
-    })
-        //this.$state = await this.model.getAllMenuObject()
+    }))
+    
+        this.render();
     }
 
     render (){
