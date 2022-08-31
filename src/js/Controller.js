@@ -21,7 +21,8 @@ export default class App{
     }
     
     async setup (){
-        await Promise.all(Object.keys(this.menu)
+
+        await Promise.allSettled(Object.keys(this.menu)
         .map(
             async (ele) =>{
                 this.menu[ele] =  await this.model.getMenuObjectByCategory(ele)
@@ -119,18 +120,18 @@ export default class App{
             }
         
             function moveSlide(){
-                let slideLocation = 0;
+                let _slideLocation = 0;
                 return( (isNextButton) => {
                     if (isNextButton) {
-                        if ( isLastElementshowed(slideLocation) ) return;
-                        slideLocation += slideInterval();
+                        if ( isLastElementshowed(_slideLocation) ) return;
+                        _slideLocation += slideInterval();
                     }
 
                     if (!isNextButton){
-                        if ( isLoctionOnFront(slideLocation) ) return;
-                        slideLocation -= slideInterval();
+                        if ( isLoctionOnFront(_slideLocation) ) return;
+                        _slideLocation -= slideInterval();
                      }
-                     slideList.style.transform = `translateX(-${slideLocation}px)`;
+                     slideList.style.transform = `translateX(-${_slideLocation}px)`;
                 })
                 
                 // history 1
