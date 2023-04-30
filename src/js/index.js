@@ -1,7 +1,3 @@
-import App from "./Controller.js"
+import App from "./Controller.js";
 
-new App(document.querySelector("#app"));  
-
-  
-
-  
+new App(document.querySelector("#app"));

@@ -1,12 +1,9 @@
-import Menu from "./core/Menu.js"
-import { explanation } from "../constants/constants.js"
-
+import Menu from "./core/Menu.js";
+import { explanation } from "../constants/constants.js";
 
 export class HowToUse extends Menu {
-   
-
-    template () {
-        return `
+  template() {
+    return `
         <div class ="how-to-use-first-contents">
             <div id="img-coffee-head" class ="how-to-use-items">
             </div>
@@ -28,8 +25,6 @@ export class HowToUse extends Menu {
             <div id="img-coffee-tail" class ="how-to-use-items">
             </div>
         </div>
-        `
-    }
-
-
+        `;
+  }
 }
